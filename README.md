@@ -10,6 +10,6 @@ BOUMAHREZ Ouijdane\\
 KOALAGA Lauriane\\
 LEVET Loïc\\
 OUKZIZ Salma\\
-rICHARD Valentin\\
+RICHARD Valentin\\
 SIMONET Theo\\
 WALLERAND Alex\\
