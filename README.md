@@ -6,10 +6,10 @@ Ce code implémente une base de données et un site web permettant de gérer des
 Une documenation est à venir.
 
 # Auteurs 
-BOUMAHREZ Ouijdane\\
-KOALAGA Lauriane\\
-LEVET Loïc\\
-OUKZIZ Salma\\
-RICHARD Valentin\\
-SIMONET Theo\\
-WALLERAND Alex\\
+BOUMAHREZ Ouijdane </br>
+KOALAGA Lauriane </br>
+LEVET Loïc </br>
+OUKZIZ Salma </br>
+RICHARD Valentin </br>
+SIMONET Theo </br>
+WALLERAND Alex </br>
