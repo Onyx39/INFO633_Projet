@@ -2,8 +2,9 @@ DROP TABLE IF EXISTS affectTournoiEquipe;
 DROP TABLE IF EXISTS affectTournoiIndiv;
 DROP TABLE IF EXISTS personne;
 DROP TABLE IF EXISTS equipe;
-DROP TABLE IF EXISTS lieu;
 DROP TABLE IF EXISTS tournoi;
+DROP TABLE IF EXISTS lieu;
+
 
 
 CREATE TABLE personne (
