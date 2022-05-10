@@ -6,7 +6,6 @@ if (isset($_POST["lieu"]) and isset($_POST["tournoi"])){
     echo $sql;
     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
     echo "\nLe lieu a bien été associé au tournoi";
-
 }
 
 ?>
