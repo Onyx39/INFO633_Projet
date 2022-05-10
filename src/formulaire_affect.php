@@ -26,6 +26,7 @@ if (isset($_POST["lieu"]) and isset($_POST["tournoi"])){
     echo $sql;
     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
     echo "\nLe lieu a bien été associé au tournoi";
+}
 
 if (isset($_POST["personne"]) and isset($_POST["equipe"])){
 
@@ -97,3 +98,27 @@ if (isset($_POST["personne"]) and isset($_POST["equipe"])){
             </select>
             <button type='submit'>Ajouter</button>
         </form>
+        
+        <h3>Formulaire 3 : Affecter une personne à un tournoi individuel</h3>
+            <form method="post">
+                <label for="personne">Choisir une personne</label>
+                <select name="personne" id="personne">
+                    <?php
+                    $sql = "SELECT pseudo FROM personne";
+                    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<option value='".$row["idPersonne"]."'>".$row["pseudo"]."</option>\n";
+                    }?>
+                </select>
+
+                <label for="tournoi">Choisir un tournoi</label>
+                <select name="tournoi" id="tournoi">
+                    <?php
+                    $sql = "SELECT idTournoi, nom, format FROM tournoi WHERE type = 'indiv'";
+                    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
+                    }?>
+                </select>
+                <button type='submit'>Ajouter</button>
+            </form>
