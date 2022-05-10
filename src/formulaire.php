@@ -104,6 +104,10 @@
             <form action="<?php __FILE__ ?>" method="post">
             Nom du tournoi : <input type='text' name='nomtournoi'></br>
             Mot de passe : <input type='text' name='mdp'></br>
+            Type : <select name='type'>
+                        <option value='indiv'>Individuel</option>
+                        <option value='equipe'>Par équipe</option>
+                    </select><br>
             Format : <input type='text' name='format'></br>
             Prix : <input type='float' name='prix'></br>
             Date : <input type='text' name='date' pattern="[0-9]{2}-[0-9]{2}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}" placeholder="JJ-MM-AAAA HH:MM:SS"></br></br>

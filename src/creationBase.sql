@@ -37,6 +37,7 @@ CREATE TABLE tournoi (
     idTournoi INT(4) AUTO_INCREMENT,
     nom VARCHAR(30) NOT NULL,
     mdp VARCHAR(30) NOT NULL,
+    type VARCHAR(30) NOT NULL,
     format VARCHAR(30) NOT NULL,
     prix FLOAT NOT NULL,
     date DATETIME NOT NULL,
