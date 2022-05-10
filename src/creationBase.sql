@@ -13,7 +13,9 @@ CREATE TABLE personne (
     nom VARCHAR(30) NOT NULL,
     prenom VARCHAR(30) NOT NULL,
     score FLOAT,
-    CONSTRAINT pk_personne PRIMARY KEY (idPersonne) 
+    equipe INT(4) DEFAULT NULL,
+    CONSTRAINT pk_personne PRIMARY KEY (idPersonne)
+    CONSTRAINT fk_equipe FOREIGN KEY (equipe) REFERENCES equipe(idEquipe) 
 );
 
 CREATE TABLE equipe (
@@ -38,7 +40,7 @@ CREATE TABLE tournoi (
     format VARCHAR(30) NOT NULL,
     prix FLOAT NOT NULL,
     date DATETIME NOT NULL,
-    lieu INT(4),
+    lieu INT(4) DEFAULT NULL,
     CONSTRAINT pk_tournoi PRIMARY KEY (idTournoi),
     CONSTRAINT fk_lieu FOREIGN KEY (lieu) REFERENCES lieu(idLieu) 
 );
