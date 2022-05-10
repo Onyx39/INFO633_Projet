@@ -37,7 +37,9 @@ CREATE TABLE tournoi (
     format VARCHAR(30) NOT NULL,
     prix FLOAT NOT NULL,
     date DATETIME NOT NULL,
-    CONSTRAINT pk_tournoi PRIMARY KEY (idTournoi) 
+    lieu INT(4),
+    CONSTRAINT pk_tournoi PRIMARY KEY (idTournoi)
+    CONSTRAINT fk_lieu FOREIGN KEY (idLieu) 
 );
 
 CREATE TABLE affectTournoiIndiv (
