@@ -35,6 +35,22 @@ if (isset($_POST["personne"]) and isset($_POST["equipe"])){
     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
     echo "\nLa personne a bien été ajouté à une équipe";
 }
+    
+if (isset($_POST["personne"]) and isset($_POST["tournoi"])){
+
+    $sql = "INSERT INTO affectTournoiIndiv VALUES($_POST["personne"], $_POST["tournoi"]);
+    echo $sql;
+    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+    echo "\nLa personne a bien été ajouté au tournoi individuel";
+}
+
+if (isset($_POST["equipe"]) and isset($_POST["tournoi"])){
+
+    $sql = "INSERT INTO affectTournoiEquipe VALUES($_POST["equipe"], $_POST["tournoi"]);
+    echo $sql;
+    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+    echo "\nL'équipe a bien été ajouté au tournoi par équipe";
+}
 ?>
 
 
@@ -104,7 +120,7 @@ if (isset($_POST["personne"]) and isset($_POST["equipe"])){
                 <label for="personne">Choisir une personne</label>
                 <select name="personne" id="personne">
                     <?php
-                    $sql = "SELECT pseudo FROM personne";
+                    $sql = "SELECT idPersonne, pseudo FROM personne";
                     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idPersonne"]."'>".$row["pseudo"]."</option>\n";
@@ -115,6 +131,30 @@ if (isset($_POST["personne"]) and isset($_POST["equipe"])){
                 <select name="tournoi" id="tournoi">
                     <?php
                     $sql = "SELECT idTournoi, nom, format FROM tournoi WHERE type = 'indiv'";
+                    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
+                    }?>
+                </select>
+                <button type='submit'>Ajouter</button>
+            </form>
+        
+        <h3>Formulaire 4 : Affecter une équipe à un tournoi par équipe</h3>
+            <form method="post">
+                <label for="equipe">Choisir une équipe</label>
+                <select name="equipe" id="equipe">
+                    <?php
+                    $sql = "SELECT idEquipe, nom FROM equipe";
+                    $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<option value='".$row["idEquipe"]."'>".$row["nom"]."</option>\n";
+                    }?>
+                </select>
+
+                <label for="tournoi">Choisir un tournoi</label>
+                <select name="tournoi" id="tournoi">
+                    <?php
+                    $sql = "SELECT idTournoi, nom, format FROM tournoi WHERE type = 'equipe'";
                     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
