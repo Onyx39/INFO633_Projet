@@ -1,11 +1,41 @@
 <html>
-
     <head>
-        <title>Fomulaire pour complétion BD</title>
-        <meta content="info">
-        <meta charset="UTF-8">
-    </head>
+        <meta charset="utf-8">
+        <title>PolyGambling</title>
+        <link href="css1.css" rel="stylesheet">
 
+    </head>
+    <body>
+        <div id="fond">
+
+            <div id="entete">
+                <div id="pagePrincipale">
+                    <a href="html1.html">
+                        <img id="logo" src="media/PolyGambling_logo_1.png" />
+                    </a>
+                </div>
+               
+                <div id="navigation">
+                    <a href="page_score.php">
+                        <img id="logo" src="media/Bouton_classement.png" />
+                    </a>
+                    <a href="deuxieme_page">
+                        <img id="logo" src="media/Bouton_tournois.png" />
+                    </a>
+                    <a href="formulaire_affect.php">
+                        <img id="logo" src="media/Bouton_gestion.png" />
+                    </a>
+                </div>
+                <div>
+                    <a id="connexion" href="login.html">
+                        <img id="logo" src="media/bouton_connexion.png" />
+                    </a>
+                </div>
+            </div>
+            
+            <div id="contenu">
+                <div id="infos">
+                    
     <?php
     /*Connection à la BD*/ 
     $conn = @mysqli_connect("tp-epua:3308", "richaval", "kwia6s9y");
@@ -52,9 +82,6 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
     echo "\nL'équipe a bien été ajouté au tournoi par équipe";
 }
 ?>
-
-
-<body>
 
 <div id="fond">
 
@@ -162,3 +189,19 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                 </select>
                 <button type='submit'>Ajouter</button>
             </form>
+
+                </div>
+            </div>  
+            
+            <div id="contact">
+                <a href="https://www.instagram.com/theo.simonet/?hl=fr">
+                    <img id="logo" src="media/insta.png" />
+                </a>
+                <a href="https://twitter.com/elonmusk">
+                    <img id="logo" src="media/twitter.png" />
+                </a>
+            </div>
+
+        </div>
+    </body>
+</html>
