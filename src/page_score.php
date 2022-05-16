@@ -8,6 +8,7 @@
 <div id='fond'>
 <h1><center>Classements &#127942</center></h1>
 
+
     <?php 
 
         /*Connection à la BD*/ 
