@@ -36,17 +36,17 @@ if (isset($_POST["personne"]) and isset($_POST["equipe"])){
     echo "\nLa personne a bien été ajouté à une équipe";
 }
     
-if (isset($_POST["personne"]) and isset($_POST["tournoi"])){
+if (isset($_POST["personne"]) and isset($_POST["tournoi_indiv"])){
 
-    $sql = "INSERT INTO affectTournoiIndiv VALUES($_POST["personne"], $_POST["tournoi"]);
+    $sql = "INSERT INTO affectTournoiIndiv VALUES(".$_POST["personne"].", ".$_POST["tournoi_indiv"].")";
     echo $sql;
     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
     echo "\nLa personne a bien été ajouté au tournoi individuel";
 }
 
-if (isset($_POST["equipe"]) and isset($_POST["tournoi"])){
+if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
 
-    $sql = "INSERT INTO affectTournoiEquipe VALUES($_POST["equipe"], $_POST["tournoi"]);
+    $sql = "INSERT INTO affectTournoiEquipe VALUES(".$_POST["equipe_t"].", ".$_POST["tournoi_e"].")";
     echo $sql;
     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
     echo "\nL'équipe a bien été ajouté au tournoi par équipe";
@@ -127,8 +127,8 @@ if (isset($_POST["equipe"]) and isset($_POST["tournoi"])){
                     }?>
                 </select>
 
-                <label for="tournoi">Choisir un tournoi</label>
-                <select name="tournoi" id="tournoi">
+                <label for="tournoi_indiv">Choisir un tournoi</label>
+                <select name="tournoi_indiv" id="tournoi_indiv">
                     <?php
                     $sql = "SELECT idTournoi, nom, format FROM tournoi WHERE type = 'indiv'";
                     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
@@ -140,9 +140,9 @@ if (isset($_POST["equipe"]) and isset($_POST["tournoi"])){
             </form>
         
         <h3>Formulaire 4 : Affecter une équipe à un tournoi par équipe</h3>
-            <form method="post">
-                <label for="equipe">Choisir une équipe</label>
-                <select name="equipe" id="equipe">
+        <form method="post">
+                <label for="equipe_t">Choisir une équipe</label>
+                <select name="equipe_t" id="equipe_t">
                     <?php
                     $sql = "SELECT idEquipe, nom FROM equipe";
                     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
@@ -151,8 +151,8 @@ if (isset($_POST["equipe"]) and isset($_POST["tournoi"])){
                     }?>
                 </select>
 
-                <label for="tournoi">Choisir un tournoi</label>
-                <select name="tournoi" id="tournoi">
+                <label for="tournoi_e">Choisir un tournoi</label>
+                <select name="tournoi_e" id="tournoi_e">
                     <?php
                     $sql = "SELECT idTournoi, nom, format FROM tournoi WHERE type = 'equipe'";
                     $result = mysqli_query($conn, $sql) or die("Erreur dans la requête : ".mysqli_error($conn)."\n".$sql);
