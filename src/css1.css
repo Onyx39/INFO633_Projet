@@ -1,0 +1,92 @@
+body {
+    background: #67BE4B;
+}
+
+#fond {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+#entete {
+    background-color: #366d248c;
+    display: flex;
+    margin: 10px;
+    height: 50;
+    border-radius: 8px;
+    border-width: 2px;
+    order :1;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+}
+
+#pagePrincipale {
+    flex-grow: 1;
+}
+
+#navigation {
+    display: flex;
+    flex-grow: 150;
+    justify-content: space-evenly;
+}
+
+#connexion {
+    flex-grow: 1;
+}
+
+#logo {
+    height: 100%;
+}
+
+#contenu {
+    display: flex;
+    height: 80%;
+    flex-grow: 2;
+    margin: 5px;
+    border-radius: 8px;
+    border-width: 2px;
+    order :2;
+}
+
+#polygambling {
+    color : black;
+    font-size: xx-large;
+}
+
+#infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color : black   ;
+    font-family: cursive;
+    font-size: large;
+    text-align: center;
+    flex-grow: 2;
+    margin: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+    order :3;
+}
+
+#img {
+    flex-grow: 1;
+    margin: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+    order :4;
+}
+
+#contact {
+    background-color: #366d248c;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;   
+    height: 50;
+    border-radius: 8px;
+    border-width: 2px;
+    order :5;
+    padding: 20px;
+}
