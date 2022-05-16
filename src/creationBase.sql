@@ -5,7 +5,12 @@ DROP TABLE IF EXISTS equipe;
 DROP TABLE IF EXISTS tournoi;
 DROP TABLE IF EXISTS lieu;
 
-
+CREATE TABLE equipe (
+    idEquipe INT(4) AUTO_INCREMENT,
+    nom VARCHAR(30) NOT NULL,
+    score FLOAT,
+    CONSTRAINT pk_equipe PRIMARY KEY (idEquipe) 
+);
 
 CREATE TABLE personne (
     idPersonne INT(4) AUTO_INCREMENT,
@@ -14,15 +19,8 @@ CREATE TABLE personne (
     prenom VARCHAR(30) NOT NULL,
     score FLOAT,
     equipe INT(4) DEFAULT NULL,
-    CONSTRAINT pk_personne PRIMARY KEY (idPersonne)
+    CONSTRAINT pk_personne PRIMARY KEY (idPersonne),
     CONSTRAINT fk_equipe FOREIGN KEY (equipe) REFERENCES equipe(idEquipe) 
-);
-
-CREATE TABLE equipe (
-    idEquipe INT(4) AUTO_INCREMENT,
-    nom VARCHAR(30) NOT NULL,
-    score FLOAT,
-    CONSTRAINT pk_equipe PRIMARY KEY (idEquipe) 
 );
 
 CREATE TABLE lieu (
