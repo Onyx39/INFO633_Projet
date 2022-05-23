@@ -27,7 +27,7 @@
                     </a>
                 </div>
                 <div>
-                    <a id="connexion" href="login.html">
+                    <a id="connexion" href="login.php">
                         <img id="logo" src="media/bouton_connexion.png" />
                     </a>
                 </div>
