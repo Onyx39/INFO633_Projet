@@ -15,10 +15,11 @@ CREATE TABLE equipe (
 CREATE TABLE personne (
     idPersonne INT(4) AUTO_INCREMENT,
     pseudo VARCHAR(30) NOT NULL,
+    mdp VARCHAR(30) NOT NULL,
     nom VARCHAR(30) NOT NULL,
     prenom VARCHAR(30) NOT NULL,
     score FLOAT,
-    equipe INT(4) DEFAULT NULL,
+    equipe INT(4) DEFAULT NULL?
     CONSTRAINT pk_personne PRIMARY KEY (idPersonne),
     CONSTRAINT fk_equipe FOREIGN KEY (equipe) REFERENCES equipe(idEquipe) 
 );
