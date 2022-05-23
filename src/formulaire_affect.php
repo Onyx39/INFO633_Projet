@@ -19,7 +19,7 @@
                     <a href="page_score.php">
                         <img id="logo" src="media/Bouton_classement.png" />
                     </a>
-                    <a href="deuxieme_page">
+                    <a href="tournois.php">
                         <img id="logo" src="media/Bouton_tournois.png" />
                     </a>
                     <a href="formulaire_affect.php">
@@ -36,19 +36,10 @@
             <div id="contenu">
                 <div id="infos">
                     
-    <?php
-    /*Connection à la BD*/ 
-    $conn = @mysqli_connect("tp-epua:3308", "richaval", "kwia6s9y");
+<?php
+require_once("connexion_bdd.php");
+$conn = connexionBdd();
 
-    if (mysqli_connect_errno()) {
-        $msg = "erreur ". mysqli_connect_error();
-    } else {  
-        $msg = "connecté au serveur " . mysqli_get_host_info($conn);
-        mysqli_select_db($conn, "richaval");
-    
-        /*Encodage UTF8 pour les échanges avec la BD*/
-        mysqli_query($conn, "SET NAMES UTF8");
-    }
 
 if (isset($_POST["lieu"]) and isset($_POST["tournoi"])){
 
@@ -88,10 +79,6 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
     <div id="titre">
     <h1>Page de test pour les formulaires qui ont vocation à gérer les affectations</h1>
     </div>
-
-    <?php
-    echo "<p>Etat de la connexion : ".$msg."<p>";
-    ?>
 
     <div id="contenu">
         <h3>Formulaire 1 : Affecter un lieu à un tournoi</h3>
