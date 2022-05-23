@@ -22,8 +22,32 @@
     <body>
         <div id="container">
             
-            <form action="verification.php" method="POST">
-                <h1>Connexion</h1>
+            <form action="<?php __FILE__ ?>" method="post">
+                <h1>Inscription</h1>
+
+                <?php 
+             if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2'])) {
+                $date = date_create();
+                $date_max = date_sub($date,date_interval_create_from_date_string("18 years"));
+                $date_max_string= $date_max->format('Y-m-d');
+                $birth_date = $_POST['date'];
+                if ($birth_date > $date_max_string) {
+                    echo "<b>Vous êtes mineur.e, vous ne pouvez pas vous inscrire sur notre site</b><br><br>";
+                }
+                else {if ($_POST['password'] != $_POST['password2']) {
+                    echo "<b>Les deux mots de passe ne coïncident pas, veuillez recommencer</b><br><br>";
+                }
+                else {
+                    $pseudo = $_POST['username'];
+                    $nom = $_POST['nom'];
+                    $prenom = $_POST['prenom'];
+                    $mdp = $_POST['password'];
+                    $sql = "INSERT INTO personne (pseudo, mdp, nom, prenom, score) VALUE ('".$pseudo."', '".$mdp."', '".$nom."', '".$prenom."', 0);";
+                    $result =  mysqli_query($conn, $sql) or die("Requête invalide : ". mysqli_error($conn)."</br>".$sql);
+                    echo "<b color='red>'>Vous avez été enregistré, bienvenue !</b><br><br>";}}}
+
+
+        ?>
 
                 <label><b>Nom</b></label>
                 <input type="text" placeholder="Entrer le mot de passe" name="nom" required>
@@ -31,8 +55,8 @@
                 <label><b>Prenom</b></label>
                 <input type="text" placeholder="Entrer le mot de passe" name="prenom" required>
 
-                <label><b>Date de naissance</b></label>
-                <input type="date" placeholder="Entrer le mot de passe" name="date" required>
+                <label><b>Date de naissance</b></label><br>
+                <input type="date" placeholder="Entrer le mot de passe" name="date" required><br><br>
                 
                 <label><b>Nom d'utilisateur</b></label>
                 <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
@@ -48,16 +72,5 @@
             </form>
         </div>
 
-        <?php 
-             if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2'])) {
-                if (date("Y/m/d") - $_POST[date] > 18) {echo "Tu es trop jeune";}
-                else {if ($_POST['password'] != $_POST['password2']) {
-                    echo "Les deux mots de passe ne coïncident pas, veuilez recommencez";
-                    break;
-                }
-                else {echo "Tout va bien !";}}}
-
-
-             }
     </body>
 </html>
