@@ -19,7 +19,7 @@
                     <a href="page_score.php">
                         <img id="logo" src="media/Bouton_classement.png" />
                     </a>
-                    <a href="deuxieme_page">
+                    <a href="tournois.php">
                         <img id="logo" src="media/Bouton_tournois.png" />
                     </a>
                     <a href="formulaire_affect.php">
@@ -46,21 +46,10 @@
 <h1><center>Classements &#127942</center></h1>
 
 
-    <?php 
-
-        /*Connection à la BD*/ 
-        $conn = @mysqli_connect("tp-epua:3308", "richaval", "kwia6s9y");
-
-        if (mysqli_connect_errno()) {
-        $msg = "erreur ". mysqli_connect_error();
-        } else {  
-        $msg = "connecté au serveur ".mysqli_get_host_info($conn);
-        mysqli_select_db($conn, "richaval");
-
-        /*Encodage UTF8 pour les échanges avec la BD*/
-        mysqli_query($conn, "SET NAMES UTF8");
-        }
-    ?>
+<?php
+    require_once("connexion_bdd.php");
+    $conn = connexionBdd();
+?>
     
     <div id='contenu'>
 
