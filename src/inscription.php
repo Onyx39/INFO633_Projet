@@ -31,7 +31,13 @@
                 $date_max = date_sub($date,date_interval_create_from_date_string("18 years"));
                 $date_max_string= $date_max->format('Y-m-d');
                 $birth_date = $_POST['date'];
-                if ($birth_date > $date_max_string) {
+                $sql_verif_pseudo = "SELECT count(idPersonne) FROM personne WHERE pseudo = '".$_POST['username']."';";
+                $result =  mysqli_query($conn, $sql_verif_pseudo) or die("Requête invalide : ". mysqli_error($conn)."</br>".$sql_verif_pseudo);
+                $val = mysqli_fetch_array($result);
+                if ($val[0] == 1) {
+                    echo "<b>Ce pseudo est déjà utilisé, veuillez en choisir un autre.</b><br><br>";
+                }
+                else { if ($birth_date > $date_max_string) {
                     echo "<b>Vous êtes mineur.e, vous ne pouvez pas vous inscrire sur notre site</b><br><br>";
                 }
                 else {if ($_POST['password'] != $_POST['password2']) {
@@ -44,7 +50,7 @@
                     $mdp = $_POST['password'];
                     $sql = "INSERT INTO personne (pseudo, mdp, nom, prenom, score) VALUE ('".$pseudo."', '".$mdp."', '".$nom."', '".$prenom."', 0);";
                     $result =  mysqli_query($conn, $sql) or die("Requête invalide : ". mysqli_error($conn)."</br>".$sql);
-                    echo "<b color='red>'>Vous avez été enregistré, bienvenue !</b><br><br>";}}}
+                    echo "<b color='red>'>Vous avez été enregistré, bienvenue !</b><br><br>";}}}}
 
 
         ?>

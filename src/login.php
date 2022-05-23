@@ -1,5 +1,7 @@
 <?php 
 
+$user_pseudo = '';
+
 /*Connection à la BD*/ 
 $conn = @mysqli_connect("tp-epua:3308", "richaval", "kwia6s9y");
 
@@ -34,9 +36,8 @@ mysqli_query($conn, "SET NAMES UTF8");
                     $result =  mysqli_query($conn, $sql) or die("Requête invalide : ". mysqli_error($conn)."</br>".$sql);
                     $val = mysqli_fetch_array($result);
                     if ($val[0] == 1) {
-                        $value = $pseudo;
-                        setcookie("user", $value, time() + (86400 * 30), '/');
-                        echo "Bienvenue ".$value." !";
+                        $user_pseudo = $pseudo;
+                        echo "Bienvenue ".$user_pseudo." !";
                     }  
                     else {
                         echo "Les informations fournies ne sont pas correctes.<br>Recommencez ou inscrivez vous.";
