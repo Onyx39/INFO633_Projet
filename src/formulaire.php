@@ -6,6 +6,7 @@
         <title>Fomulaire pour complétion BD</title>
         <meta content="info">
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="formulaire.css" media="screen" type="text/css" />
     </head>
     
     <?php
@@ -18,14 +19,15 @@
     <div id="fond">
 
         <div id="titre">
-        <h1>Page de test pour les formulaires qui ont vocation à insérer des données dans la BD</h1>
+        <h1>Page de gestion</h1>
         </div>
 
         <?php
-        echo "<p>Etat de la connexion : ".$msg."<p>";
+        //echo "<p>Etat de la connexion : ".$msg."<p>";
         ?>
 
         <div id="contenu">
+        <div id="formulaire">
             <h3>Formulaire 1 : Rentrer un nouveau joueur dans la BD</h3>
             <form action="<?php __FILE__ ?>" method="post">
             Nom : <input type='text' name='nom'></br>
@@ -33,6 +35,7 @@
             Pseudo : <input type='text' name='pseudo'></br></br>
             <button type='submit'>Ajouter à la base de données</button>
             </form>
+        </div>
 
             <?php
             if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pseudo'])){
@@ -48,12 +51,13 @@
             ?>
 
             </br></br></br>
-
+            <div id="formulaire">
             <h3>Formulaire 2 : Rentrer une nouvelle équipe dans la BD</h3>
             <form action="<?php __FILE__ ?>" method="post">
             Nom d'équipe : <input type='text' name='nomdequipe'></br></br>
             <button type='submit'>Ajouter à la base de données</button>
             </form>
+            </div>
 
             <?php
             if(isset($_POST['nomdequipe'])){
@@ -67,7 +71,7 @@
             ?>
 
             </br></br></br>
-
+            <div id="formulaire">
             <h3>Formulaire 3 : Rentrer un nouveau lieu dans la BD</h3>
             <form action="<?php __FILE__ ?>" method="post">
             Adresse : <input type='text' name='adresse'></br>
@@ -75,6 +79,7 @@
             Ville : <input type='text' name='ville'></br></br>
             <button type='submit'>Ajouter à la base de données</button>
             </form>
+            </div>
 
             <?php
             if(isset($_POST['adresse']) && isset($_POST['cp']) && isset($_POST['ville'])){
@@ -89,7 +94,7 @@
             ?>
 
             </br></br></br>
-
+            <div id="formulaire">
             <h3>Formulaire 4 : Rentrer un nouveau tournoi dans la BD</h3>
             <form action="<?php __FILE__ ?>" method="post">
             Nom du tournoi : <input type='text' name='nomtournoi'></br>
@@ -103,6 +108,7 @@
             Date : <input type='text' name='date' pattern="[0-9]{2}-[0-9]{2}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}" placeholder="JJ-MM-AAAA HH:MM:SS"></br></br>
             <button type='submit'>Ajouter à la base de données</button>
             </form>
+            </div>
 
             <?php
             if(isset($_POST['nomtournoi']) && isset($_POST['mdp']) && isset($_POST['format']) && isset($_POST['prix']) && isset($_POST['date'])){

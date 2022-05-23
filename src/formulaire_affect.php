@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <title>PolyGambling</title>
         <link href="css1.css" rel="stylesheet">
+        <link rel="stylesheet" href="formulaire.css" media="screen" type="text/css" />
 
     </head>
     <body>
@@ -77,11 +78,12 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
 <div id="fond">
 
     <div id="titre">
-    <h1>Page de test pour les formulaires qui ont vocation à gérer les affectations</h1>
+    <h1>Page de gestion</h1>
     </div>
 
     <div id="contenu">
-        <h3>Formulaire 1 : Affecter un lieu à un tournoi</h3>
+        <div class='formulaire'>
+        <h3>Affecter un lieu à un tournoi</h3>
         <form method="post">
             <label for="lieu">Choisir un lieu</label>
             <select name="lieu" id="lieu">
@@ -91,7 +93,7 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                 while($row = mysqli_fetch_assoc($result)){
                     echo "<option value='".$row["idLieu"]."'>".$row["adresse"].", ".$row["cp"]." ".$row["ville"]."</option>\n";
                 }?>
-            </select>
+            </select><br>
 
             <label for="tournoi">Choisir un tournoi</label>
             <select name="tournoi" id="tournoi">
@@ -101,11 +103,13 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                 while($row = mysqli_fetch_assoc($result)){
                     echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
                 }?>
-            </select>
+            </select><br><br>
             <button type='submit'>Ajouter</button>
         </form>
+        </div>
 
-        <h3>Formulaire 2 : Affecter une personne à une équipe</h3>
+        <div class='formulaire'>
+        <h3>Affecter une personne à une équipe</h3>
         <form method="post">
             <label for="personne">Choisir un personne</label>
             <select name="personne" id="personne">
@@ -115,7 +119,7 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                 while($row = mysqli_fetch_assoc($result)){
                     echo "<option value='".$row["idPersonne"]."'>".$row["pseudo"]."</option>\n";
                 }?>
-            </select>
+            </select><br>
 
             <label for="equipe">Choisir une équipe</label>
             <select name="equipe" id="equipe">
@@ -125,11 +129,13 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                 while($row = mysqli_fetch_assoc($result)){
                     echo "<option value='".$row["idEquipe"]."'>".$row["nom"]."</option>\n";
                 }?>
-            </select>
+            </select><br><br>
             <button type='submit'>Ajouter</button>
         </form>
+        </div>
         
-        <h3>Formulaire 3 : Affecter une personne à un tournoi individuel</h3>
+        <div class='formulaire'>
+        <h3>Affecter une personne à un tournoi</h3>
             <form method="post">
                 <label for="personne">Choisir une personne</label>
                 <select name="personne" id="personne">
@@ -139,7 +145,7 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idPersonne"]."'>".$row["pseudo"]."</option>\n";
                     }?>
-                </select>
+                </select><br>
 
                 <label for="tournoi_indiv">Choisir un tournoi</label>
                 <select name="tournoi_indiv" id="tournoi_indiv">
@@ -149,11 +155,13 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
                     }?>
-                </select>
+                </select><br><br>
                 <button type='submit'>Ajouter</button>
             </form>
+        </div>
         
-        <h3>Formulaire 4 : Affecter une équipe à un tournoi par équipe</h3>
+        <div class='formulaire'>
+        <h3>Affecter une équipe à un tournoi</h3>
         <form method="post">
                 <label for="equipe_t">Choisir une équipe</label>
                 <select name="equipe_t" id="equipe_t">
@@ -163,7 +171,7 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idEquipe"]."'>".$row["nom"]."</option>\n";
                     }?>
-                </select>
+                </select><br>
 
                 <label for="tournoi_e">Choisir un tournoi</label>
                 <select name="tournoi_e" id="tournoi_e">
@@ -173,9 +181,10 @@ if (isset($_POST["equipe_t"]) and isset($_POST["tournoi_e"])){
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value='".$row["idTournoi"]."'>".$row["nom"].", ".$row["format"]."</option>\n";
                     }?>
-                </select>
+                </select><br><br>
                 <button type='submit'>Ajouter</button>
             </form>
+                </div>
 
                 </div>
             </div>  

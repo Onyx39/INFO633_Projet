@@ -1,0 +1,25 @@
+div #contenu {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+div .formulaire {
+    width: 420px;
+    height: 200px;
+    margin: 5px;
+    border : 1px solid blue;
+    background-color: cyan;
+    -webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomright:15px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-moz-border-radius-bottomleft:15px;
+	border-bottom-left-radius:15px;
+}
