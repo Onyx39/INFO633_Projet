@@ -28,7 +28,7 @@
                     <a href="page_score.php">
                         <img id="logo" src="media/Bouton_classement.png" />
                     </a>
-                    <a href="deuxieme_page">
+                    <a href="tournois.php">
                         <img id="logo" src="media/Bouton_tournois.png" />
                     </a>
                     <a href="formulaire_affect.php">
